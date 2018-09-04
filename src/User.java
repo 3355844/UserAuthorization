@@ -1,10 +1,10 @@
 public class User {
-    static int nextId = 0;
-    int id = nextId++;
-    String name;
-    String login;
-    String pass;
-    Roles roles;
+    private static int nextId = 0;
+    private int id = nextId++;
+    private String name;
+    private String login;
+    private String pass;
+    private Roles roles;
 
     public User(String login, String pass) {
         this.login = login;
@@ -12,6 +12,16 @@ public class User {
     }
 
     public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", login='" + login + '\'' +
+                ", pass='" + pass + '\'' +
+                '}';
     }
 
     public int getId() {

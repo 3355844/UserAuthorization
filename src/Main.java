@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-//        READ about Class LOGER (log4j tools)
+//        READ about Class LOGGER (log4j tools)
 
         int lengthArr = 10;
         User[] usersArr = new User[lengthArr];

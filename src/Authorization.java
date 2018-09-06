@@ -1,6 +1,7 @@
 public class Authorization {
 
 
+
     public User authorization(User[] usersArr, String login, String pass) {
         User user = null;
         for (User user1 : usersArr) {

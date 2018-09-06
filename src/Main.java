@@ -1,24 +1,23 @@
 public class Main {
+
+
     public static void main(String[] args) {
 
-//        READ about Class LOGGER (log4j tools)
+        System.out.println(MenuProgram.class.getName());
+        System.out.println();
 
-        int lengthArr = 10;
-        User[] usersArr = new User[lengthArr];
-        Authorization authorization = new Authorization();
-        User tmpUser;
-        User tmpUserWrong;
-
-        createUsers(usersArr);
-        tmpUser =  authorization.authorization(usersArr, "user1", "pass1");
-        tmpUserWrong =  authorization.authorization(usersArr, "user10", "pass10");
-        System.out.println(tmpUser);
-        System.out.println(tmpUserWrong);
-
-
+//        int lengthArr = 10;
+//        User[] usersArr = new User[lengthArr];
+//        Authorization authorization = new Authorization();
+//        User tmpUser;
+//        User tmpUserWrong;
+//
+//        createUsers(usersArr);
+//        tmpUser = authorization.authorization(usersArr, "user1", "pass1");
+//        tmpUserWrong = authorization.authorization(usersArr, "user10", "pass10");
+//        System.out.println(tmpUser);
+//        System.out.println(tmpUserWrong);
 //        printUsers(usersArr);
-
-
     }
 
     private static void createUsers(User[] usersArr) {
@@ -29,7 +28,7 @@ public class Main {
 
     private static void printUsers(User[] usersArr) {
         for (User user : usersArr) {
-            System.out.println(user.toString());
+            LoggerUser.i("", user.toString());
         }
     }
 }

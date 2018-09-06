@@ -3,16 +3,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(MenuProgram.class.getName());
-        System.out.println();
+        int lengthArr = 10;
+        User[] usersArr = new User[lengthArr];
+        User user = null;
+        createUsers(usersArr);
 
-//        int lengthArr = 10;
-//        User[] usersArr = new User[lengthArr];
+        do {
+            user = MenuProgram.authorizationUser(usersArr);
+        } while (user == null);
+
+
+
 //        Authorization authorization = new Authorization();
 //        User tmpUser;
 //        User tmpUserWrong;
 //
-//        createUsers(usersArr);
 //        tmpUser = authorization.authorization(usersArr, "user1", "pass1");
 //        tmpUserWrong = authorization.authorization(usersArr, "user10", "pass10");
 //        System.out.println(tmpUser);

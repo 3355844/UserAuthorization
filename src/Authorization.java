@@ -1,8 +1,8 @@
-public class Authorization {
+public  class Authorization {
 
 
 
-    public User authorization(User[] usersArr, String login, String pass) {
+    public static User authorization(User[] usersArr, String login, String pass) {
         User user = null;
         for (User user1 : usersArr) {
             if (user1 != null && user1.getLogin().equals(login)  && user1.getPass().equals(pass)) {

@@ -1,3 +1,9 @@
 public class Roles {
-    String right;
+    String right = "USER";
+
+    @Override
+    public String toString() {
+        return " Roles{" + right + '\'' +
+                '}';
+    }
 }

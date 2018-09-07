@@ -2,17 +2,20 @@ import java.util.Scanner;
 
 public class MenuProgram {
 
-    private String menuAdmin = "c - create \n" +
+    private static String menuAdmin =
             "r - read \n" +
-            "u - update \n" +
-            "d - delete \n" +
-            "exit - for finish program";
+                    "d - delete \n" +
+                    "exit - for finish program";
 
-    private String menuUser = "Change fields \n" +
+    private static String menuUser = "Change fields \n" +
             "n - name \n" +
             "l - login.";
 
-    private  String newNameCommand = "Enter new Name: ";
+    private static String newNameCommand = "Enter new Name: ";
+    private static String newLoginCommand = "Enter new Login: ";
+    private static String ok = "OK";
+    private static String wrongOperation = "Wrong operation";
+
 
     public static User authorizationUser(User[] usersArr) {
         User user = null;
@@ -29,26 +32,53 @@ public class MenuProgram {
         return user;
     }
 
-    public User[] menuUser(User[] usersArr, User user) {
+    public static User[] menuUser(User[] usersArr, User user) {
+        class Local {
+        }
+        ;
+        String nameMethod = Local.class.getEnclosingMethod().getName();
         String command;
         String value = null;
 
-        LoggerUser.i(this.getClass().getName(), menuUser);
+        LoggerUser.i(nameMethod, menuUser);
         command = readConsoleValue();
-        if (command.equals("n")){
-            LoggerUser.i(this.getClass().getName(), newNameCommand);
+        if (command.equals("n")) {
+            LoggerUser.i(nameMethod, newNameCommand);
             value = readConsoleValue();
             user.setName(value);
+            LoggerUser.d(nameMethod, ok);
+        } else if (command.equals("l")) {
+            LoggerUser.i(nameMethod, newLoginCommand);
+            value = readConsoleValue();
+            user.setLogin(value);
+            LoggerUser.d(nameMethod, ok);
+        } else {
+            LoggerUser.w(nameMethod, wrongOperation);
         }
-
-
         return usersArr;
     }
 
     public User[] menuAdmin(User[] usersArr) {
 
-        LoggerUser.d(this.getClass().getName(), "Main User menuAdmin");
         LoggerUser.i(this.getClass().getName(), menuAdmin);
+        String command = null;
+        command = readConsoleValue();
+
+        if (command.equals("r")) {
+            UserDAO.readAll(usersArr);
+        } else if (command.equals("d")) {
+            int id;
+            User user = null;
+            LoggerUser.i("Delete", "Enter id for delete User");
+            id = Integer.parseInt(readConsoleValue());
+            UserDAO.delete(usersArr, id);
+
+        } else if (command.equals("exit")) {
+
+        } else {
+
+        }
+
 
         return usersArr;
     }

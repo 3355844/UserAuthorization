@@ -4,12 +4,11 @@ public class User {
     private String name;
     private String login;
     private String pass;
-    private Roles roles;
+    private Roles roles = new Roles();
 
     public User(String login, String pass) {
         this.login = login;
         this.pass = pass;
-        this.roles.right = "USER";
     }
 
     public User() {
@@ -22,6 +21,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", login='" + login + '\'' +
                 ", pass='" + pass + '\'' +
+                 roles.toString() + '\'' +
                 '}';
     }
 

@@ -12,6 +12,13 @@ public class Main {
             user = MenuProgram.authorizationUser(usersArr);
         } while (user == null);
 
+        if(user.getLogin().equals("admin") && user.getPass().equals("admin")){
+            user.getRoles().right = "ADMIN";
+
+
+        } else {
+
+        }
 
 
 //        Authorization authorization = new Authorization();

@@ -2,12 +2,17 @@ import java.util.Scanner;
 
 public class MenuProgram {
 
-    private String menu = "c - create \n" +
+    private String menuAdmin = "c - create \n" +
             "r - read \n" +
             "u - update \n" +
             "d - delete \n" +
             "exit - for finish program";
 
+    private String menuUser = "Change fields \n" +
+            "n - name \n" +
+            "l - login.";
+
+    private  String newNameCommand = "Enter new Name: ";
 
     public static User authorizationUser(User[] usersArr) {
         User user = null;
@@ -24,10 +29,26 @@ public class MenuProgram {
         return user;
     }
 
+    public User[] menuUser(User[] usersArr, User user) {
+        String command;
+        String value = null;
+
+        LoggerUser.i(this.getClass().getName(), menuUser);
+        command = readConsoleValue();
+        if (command.equals("n")){
+            LoggerUser.i(this.getClass().getName(), newNameCommand);
+            value = readConsoleValue();
+            user.setName(value);
+        }
+
+
+        return usersArr;
+    }
+
     public User[] menuAdmin(User[] usersArr) {
 
-        LoggerUser.d(this.getClass().getName(), "Main User menu");
-        LoggerUser.i(this.getClass().getName(), menu);
+        LoggerUser.d(this.getClass().getName(), "Main User menuAdmin");
+        LoggerUser.i(this.getClass().getName(), menuAdmin);
 
         return usersArr;
     }

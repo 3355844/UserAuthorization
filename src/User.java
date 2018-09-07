@@ -9,6 +9,7 @@ public class User {
     public User(String login, String pass) {
         this.login = login;
         this.pass = pass;
+        this.roles.right = "USER";
     }
 
     public User() {
